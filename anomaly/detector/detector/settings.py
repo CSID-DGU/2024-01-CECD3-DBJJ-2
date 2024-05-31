@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "core.apps.CoreConfig"
 ]
 
 MIDDLEWARE = [
@@ -79,7 +78,11 @@ WSGI_APPLICATION = "detector.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": "dbjj",
+        "USER": "nykoh",
+        "PASSWORD": "nykoh1116",
+        "HOST": "localhost",
+        "PORT": '5432'
     }
 }
 
