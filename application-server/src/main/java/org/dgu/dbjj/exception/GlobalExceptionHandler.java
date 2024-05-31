@@ -1,6 +1,6 @@
-package exception;
+package org.dgu.dbjj.exception;
 
-import dto.common.ResponseDto;
+import org.dgu.dbjj.dto.common.ResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

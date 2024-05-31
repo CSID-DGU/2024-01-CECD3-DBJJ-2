@@ -1,13 +1,13 @@
-package service;
+package org.dgu.dbjj.service;
 
-import domain.PredictionLog;
-import dto.response.ModelEvaluationDto;
-import dto.response.ModelPredictionDto;
+import org.dgu.dbjj.domain.PredictionLog;
+import org.dgu.dbjj.dto.response.ModelEvaluationDto;
+import org.dgu.dbjj.dto.response.ModelPredictionDto;
 import lombok.RequiredArgsConstructor;
+import org.dgu.dbjj.util.RestTemplateUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.PredictionLogRepository;
-import util.RestTemplateUtil;
+import org.dgu.dbjj.repository.PredictionLogRepository;
 
 @Service
 @RequiredArgsConstructor

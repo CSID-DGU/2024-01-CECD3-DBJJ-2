@@ -1,15 +1,15 @@
-package controller;
+package org.dgu.dbjj.controller;
 
-import dto.request.PredictDto;
-import dto.response.ModelEvaluationDto;
-import dto.response.ModelPredictionDto;
-import dto.common.ResponseDto;
+import org.dgu.dbjj.dto.request.PredictDto;
+import org.dgu.dbjj.dto.response.ModelEvaluationDto;
+import org.dgu.dbjj.dto.response.ModelPredictionDto;
+import org.dgu.dbjj.dto.common.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.ModelService;
+import org.dgu.dbjj.service.ModelService;
 
 @RestController
 @RequestMapping("/api/models")
