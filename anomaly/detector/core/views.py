@@ -1,22 +1,15 @@
-from django.http import HttpResponse, HttpRequest, JsonResponse
+from django.http import HttpRequest, JsonResponse
 
-from core.pipelines.pipeline import Pipeline
-from core.pipelines.pipeline_proxy import PipelineProxy
+from core.dto.common.response_dto import ResponseDto
+from django.views.decorators.csrf import csrf_exempt
 
 
-# Create your views here.
-def train(request: HttpRequest) -> HttpResponse:
+def train(request: HttpRequest) -> JsonResponse:
     # PipelineProxy.train()
-    return JsonResponse(
-        {
-            "status": "success"
-        }
-    )
+    return ResponseDto.success()
 
-def predict(request: HttpRequest) -> HttpResponse:
+
+@csrf_exempt
+def predict(request: HttpRequest) -> JsonResponse:
     # PipelineProxy.predict()
-    return JsonResponse(
-        {
-            "status": "success"
-        }
-    )
+    return ResponseDto.success()
