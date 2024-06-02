@@ -30,6 +30,25 @@ services:
     networks:
       - es-bridge
 
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.10.4
+    container_name: logstash
+#    volumes:
+#      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    environment:
+      - xpack.monitoring.enabled=false
+      - xpack.management.enabled=false
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+    ports:
+      - 5044:5044
+    depends_on:
+      - es
+      - kibana
+    networks:
+      - es-bridge
+
 networks:
   es-bridge:
     driver: bridge
