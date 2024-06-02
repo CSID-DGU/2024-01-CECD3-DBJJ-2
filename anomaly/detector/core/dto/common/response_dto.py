@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 
+
 class ResponseDto:
     def __init__(self, success: bool, data, error):
         self.success: bool = success
