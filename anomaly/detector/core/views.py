@@ -5,7 +5,7 @@ from core.pipelines.pipeline_proxy import PipelineProxy
 
 
 # Create your views here.
-def train() -> HttpResponse:
+def train(request: HttpRequest) -> HttpResponse:
     # PipelineProxy.train()
     return JsonResponse(
         {
