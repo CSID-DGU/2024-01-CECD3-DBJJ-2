@@ -1,6 +1,6 @@
-package dto.common;
+package org.dgu.dbjj.dto.common;
 
-import dto.common.type.ErrorCode;
+import org.dgu.dbjj.dto.common.type.ErrorCode;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

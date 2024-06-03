@@ -1,7 +1,7 @@
-package util;
+package org.dgu.dbjj.util;
 
-import dto.response.ModelEvaluationDto;
-import dto.response.ModelPredictionDto;
+import org.dgu.dbjj.dto.response.ModelEvaluationDto;
+import org.dgu.dbjj.dto.response.ModelPredictionDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

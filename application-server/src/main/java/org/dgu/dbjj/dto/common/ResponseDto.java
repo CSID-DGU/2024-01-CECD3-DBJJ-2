@@ -1,9 +1,9 @@
-package dto.common;
+package org.dgu.dbjj.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import dto.common.type.ErrorCode;
-import exception.CommonException;
+import org.dgu.dbjj.dto.common.type.ErrorCode;
+import org.dgu.dbjj.exception.CommonException;
 import jakarta.annotation.Nullable;
 import lombok.AccessLevel;
 import lombok.Getter;

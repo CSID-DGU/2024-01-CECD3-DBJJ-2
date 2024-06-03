@@ -1,6 +1,6 @@
-package dto.response;
+package org.dgu.dbjj.dto.response;
 
-import dto.type.AnomalyLevel;
+import org.dgu.dbjj.dto.type.AnomalyLevel;
 import java.time.LocalDateTime;
 
 public record ModelPredictionDto(

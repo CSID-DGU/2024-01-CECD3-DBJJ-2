@@ -1,6 +1,6 @@
-package exception;
+package org.dgu.dbjj.exception;
 
-import dto.common.type.ErrorCode;
+import org.dgu.dbjj.dto.common.type.ErrorCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

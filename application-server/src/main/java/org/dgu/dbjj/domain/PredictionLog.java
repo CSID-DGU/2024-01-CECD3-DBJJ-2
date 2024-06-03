@@ -1,7 +1,7 @@
-package domain;
+package org.dgu.dbjj.domain;
 
-import dto.response.ModelPredictionDto;
-import dto.type.AnomalyLevel;
+import org.dgu.dbjj.dto.response.ModelPredictionDto;
+import org.dgu.dbjj.dto.type.AnomalyLevel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

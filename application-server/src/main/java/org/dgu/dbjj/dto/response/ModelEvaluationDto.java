@@ -1,4 +1,4 @@
-package dto.response;
+package org.dgu.dbjj.dto.response;
 
 import java.time.LocalDateTime;
 

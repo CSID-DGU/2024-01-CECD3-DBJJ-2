@@ -1,4 +1,4 @@
-package dto.common.type;
+package org.dgu.dbjj.dto.common.type;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
