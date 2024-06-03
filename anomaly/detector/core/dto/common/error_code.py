@@ -1,0 +1,12 @@
+from enum import Enum
+
+
+class ErrorCode(Enum):
+    BAD_REQUEST = 40000,
+    UNAUTHORIZED = 40100,
+    FORBIDDEN = 40300,
+    NOT_FOUND = 40400,
+    METHOD_NOT_ALLOWED = 40500,
+    CONFLICT = 40900,
+    INTERNAL_SERVER_ERROR = 50000,
+    BAD_GATEWAY = 50200,
