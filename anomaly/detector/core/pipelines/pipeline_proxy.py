@@ -1,6 +1,7 @@
 from core.pipelines.impl.predict_pipeline import PredictPipeline
 from core.pipelines.impl.train_pipeline import TrainPipeline
 from core.pipelines.pipeline import Pipeline
+from core.dto.predict.result import Result
 
 
 class PipelineProxy:
@@ -11,9 +12,9 @@ class PipelineProxy:
         train_instance = self.get_train_instance()
         train_instance.run()
 
-    def predict(self):
+    def predict(self) -> Result:
         predict_instance = self.get_predict_instance()
-        predict_instance.run()
+        return predict_instance.run()
 
     def update_predict_instance(self, instance):
         # TODO: update .pkl file
