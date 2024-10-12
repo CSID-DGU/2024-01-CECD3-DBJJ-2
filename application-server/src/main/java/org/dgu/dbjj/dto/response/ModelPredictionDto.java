@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public record ModelPredictionDto(
         String modelVersion,
+        Boolean isAnomaly,
         AnomalyLevel anomalyLevel,
         Double accuracy,
         Double anomalyScore,

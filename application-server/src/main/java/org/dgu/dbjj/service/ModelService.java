@@ -31,7 +31,7 @@ public class ModelService {
         return null;
     }
 
-    protected void savePredictionLog(final ModelPredictionDto modelPredictionDto) {
-        predictionLogRepository.save(PredictionLog.from(modelPredictionDto));
+    protected void savePredictionLog(final ModelPredictionDto modelPrediction) {
+        predictionLogRepository.save(PredictionLog.from(modelPrediction));
     }
 }

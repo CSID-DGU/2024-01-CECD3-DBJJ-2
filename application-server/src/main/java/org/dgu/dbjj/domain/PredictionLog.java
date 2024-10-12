@@ -1,5 +1,6 @@
 package org.dgu.dbjj.domain;
 
+import lombok.*;
 import org.dgu.dbjj.dto.response.ModelPredictionDto;
 import org.dgu.dbjj.dto.type.AnomalyLevel;
 import jakarta.persistence.Column;
@@ -11,8 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
@@ -40,13 +39,23 @@ public class PredictionLog {
     @Column(name = "anomaly_level", nullable = false)
     private AnomalyLevel anomalyLevel;
 
-    @Column(name = "request_timestamp", nullable = false)
+    @Column(name = "request_timestamp")
     private LocalDateTime requestTimeStamp;
 
-    @Column(name = "prediction_timestamp", nullable = false)
+    @Column(name = "prediction_timestamp")
     private LocalDateTime predictionTimestamp;
 
-    public static PredictionLog from(final ModelPredictionDto prediction) {
-        return new PredictionLog();
+    public static PredictionLog from(final @NonNull ModelPredictionDto prediction) {
+        return new PredictionLog(prediction);
+    }
+
+    protected PredictionLog(final @NonNull ModelPredictionDto prediction) {
+        this.modelVersion = prediction.modelVersion();
+        this.imageUrl = prediction.imageUrl();
+        this.isAnomaly = false;
+        this.anomalyScore = prediction.anomalyScore();
+        this.anomalyLevel = AnomalyLevel.NORMAL;
+        this.requestTimeStamp = LocalDateTime.now();
+        this.predictionTimestamp = requestTimeStamp;
     }
 }
