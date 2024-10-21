@@ -1,5 +1,7 @@
 from core.pipelines.pipeline import Pipeline
 from core.dto.predict.result import Result
+from core.dto.predict.anomaly_level import AnomalyLevel
+from datetime import datetime
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -15,5 +17,5 @@ class PredictPipeline(Pipeline):
 
     def run(self) -> Result:
         # TODO: implement model call logic
-        return Result("1.0", "1", "0.99", "0.99", "http://image_url", "1.0")
+        return Result("1.0", AnomalyLevel.normal.value, "0.99", "0.99", "http://image_url", datetime.now())
     
