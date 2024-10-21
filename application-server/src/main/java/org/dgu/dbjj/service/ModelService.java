@@ -1,5 +1,6 @@
 package org.dgu.dbjj.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.dgu.dbjj.domain.PredictionLog;
 import org.dgu.dbjj.dto.response.ModelEvaluationDto;
 import org.dgu.dbjj.dto.response.ModelPredictionDto;
@@ -9,8 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.dgu.dbjj.repository.PredictionLogRepository;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ModelService {
 
     private final RestTemplateUtil restTemplateUtil;
@@ -25,13 +29,13 @@ public class ModelService {
     }
 
     @Transactional
-    public ModelPredictionDto predict(final String imageUrl) {
+    public PredictionLog predict(final String imageUrl) {
+        LocalDateTime requestTime = LocalDateTime.now();
         ModelPredictionDto prediction = restTemplateUtil.getPrediction(imageUrl);
-        savePredictionLog(prediction);
-        return null;
+        return savePredictionLog(prediction, requestTime);
     }
 
-    protected void savePredictionLog(final ModelPredictionDto modelPrediction) {
-        predictionLogRepository.save(PredictionLog.from(modelPrediction));
+    protected PredictionLog savePredictionLog(final ModelPredictionDto modelPrediction, final LocalDateTime requestTime) {
+        return predictionLogRepository.save(PredictionLog.of(modelPrediction, requestTime));
     }
 }

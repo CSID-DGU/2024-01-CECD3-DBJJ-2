@@ -1,6 +1,7 @@
 package org.dgu.dbjj.domain;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.dgu.dbjj.dto.response.ModelPredictionDto;
 import org.dgu.dbjj.dto.type.AnomalyLevel;
 import jakarta.persistence.Column;
@@ -11,12 +12,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Table(name = "prediction_logs")
+@Slf4j
 public class PredictionLog {
 
     @Id
@@ -45,17 +48,26 @@ public class PredictionLog {
     @Column(name = "prediction_timestamp")
     private LocalDateTime predictionTimestamp;
 
-    public static PredictionLog from(final @NonNull ModelPredictionDto prediction) {
-        return new PredictionLog(prediction);
+
+    public static PredictionLog of(final ModelPredictionDto prediction, final LocalDateTime requestTime) {
+        log.info("of method");
+        return new PredictionLog(prediction, requestTime);
     }
 
-    protected PredictionLog(final @NonNull ModelPredictionDto prediction) {
+    protected PredictionLog(final ModelPredictionDto prediction, final LocalDateTime requestTime) {
+        log.info("constructor");
         this.modelVersion = prediction.modelVersion();
+        log.info(prediction.modelVersion());
         this.imageUrl = prediction.imageUrl();
-        this.isAnomaly = false;
+        log.info(prediction.imageUrl());
+        this.isAnomaly = prediction.isAnomaly();
+        log.info(prediction.isAnomaly().toString());
         this.anomalyScore = prediction.anomalyScore();
-        this.anomalyLevel = AnomalyLevel.NORMAL;
-        this.requestTimeStamp = LocalDateTime.now();
-        this.predictionTimestamp = requestTimeStamp;
+        log.info(prediction.anomalyScore().toString());
+        this.anomalyLevel = prediction.anomalyLevel();
+        log.info(prediction.anomalyLevel().toString());
+        this.requestTimeStamp = requestTime;
+        this.predictionTimestamp = prediction.predictionTime();
+        log.info(prediction.predictionTime().toString());
     }
 }

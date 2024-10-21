@@ -1,5 +1,6 @@
 package org.dgu.dbjj.controller;
 
+import org.dgu.dbjj.domain.PredictionLog;
 import org.dgu.dbjj.dto.request.PredictDto;
 import org.dgu.dbjj.dto.response.ModelEvaluationDto;
 import org.dgu.dbjj.dto.response.ModelPredictionDto;
@@ -31,8 +32,8 @@ public class ModelController {
     }
 
     @PostMapping("/predict")
-    public ResponseDto<ModelPredictionDto> predict(@RequestBody final PredictDto predictDto) {
-        ModelPredictionDto modelPredictionDto = modelService.predict(predictDto.imageUrl());
-        return ResponseDto.success(modelPredictionDto);
+    public ResponseDto<PredictionLog> predict(@RequestBody final PredictDto predictDto) {
+        PredictionLog predictionLog = modelService.predict(predictDto.imageUrl());
+        return ResponseDto.success(predictionLog);
     }
 }
