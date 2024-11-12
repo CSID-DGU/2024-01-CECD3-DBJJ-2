@@ -1,0 +1,23 @@
+/* src/styles/DatasetItem.css */
+.dataset-group {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.dataset-detail td {
+  padding: 8px 10px;
+  background-color: #fafafa;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #d9534f;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: #c9302c;
+}
