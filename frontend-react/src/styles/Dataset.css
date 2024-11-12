@@ -1,0 +1,19 @@
+.dataset {
+  padding: 20px;
+  border: 1px solid #ddd; /* 테두리 추가 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+}
+
+.dataset-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataset-table th,
+.dataset-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}

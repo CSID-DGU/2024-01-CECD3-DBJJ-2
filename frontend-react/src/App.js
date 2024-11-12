@@ -1,8 +1,23 @@
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DataUpload from './pages/DataUpload';
+import Layout from './components/Layout';
+import Dataset from './pages/DataSet';
+
 function App() {
   return (
-    <div>
-      <h1>Welcome to My Project</h1>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<h1>대박징징자라자라조's Main Page</h1>} />
+          <Route path="/data-upload" element={<DataUpload />} />
+          <Route path="/dataset" element={<Dataset />} />
+          <Route path="/detection" element={<h1>Detection Page</h1>} />
+          <Route path="/reports" element={<h1>Reports Page</h1>} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
