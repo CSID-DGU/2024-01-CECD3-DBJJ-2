@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DataUpload from './pages/DataUpload';
 import Detection from './pages/Detection';
+import Reports from './pages/Reports';
 import Layout from './components/Layout';
 import Dataset from './pages/DataSet';
 
@@ -15,7 +16,7 @@ function App() {
           <Route path="/data-upload" element={<DataUpload />} />
           <Route path="/dataset" element={<Dataset />} />
           <Route path="/detection" element={<Detection />} />
-          <Route path="/reports" element={<h1>Reports Page</h1>} />
+          <Route path="/reports" element={<Reports  />} />
         </Routes>
       </Layout>
     </Router>
