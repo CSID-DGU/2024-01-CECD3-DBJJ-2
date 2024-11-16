@@ -1,0 +1,53 @@
+.full-container {
+    width: 1120px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-set {
+    width: 250px;
+    height: 700px;
+    padding: 10px;
+    border: 1px solid #ddd; /* 테두리 추가 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    background-color: #fff;
+}
+
+.det-container {
+    width: 837px;
+    height: 700px;
+    display: flex;
+    flex-direction: column; /* 세로로 배열 */
+    gap: 20px; /* pic-view와 code-view 간 간격 */
+}
+
+.pic-view {
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding: 30px;
+    height: 40%;
+    border: 1px solid #ddd; /* 테두리 추가 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    background-color: #F3EDF7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    display: flex; /* 이미지들을 가로로 나열 */
+    gap: 10px; /* 이미지 간 간격 */
+    align-items: center; /* 이미지들을 세로 기준으로 가운데 정렬 */
+}
+
+.sample-image {
+    max-height: 150px; /* 이미지 높이 제한 */
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+.code-view {
+    width: 837px;
+    height: 374px;
+    padding: 20px;
+    border: 1px solid #ddd; /* 테두리 추가 */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    font-size: 14px; /* 폰트 크기 조정 */
+    line-height: 1.6; /* 텍스트 간격 */
+}
