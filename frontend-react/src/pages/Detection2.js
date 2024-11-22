@@ -5,8 +5,7 @@ const Detection = () => {
 
         // 데이터 목록 상태
         const [data, setData] = useState([
-            { name: 'Bottle', tags: 'Test', isOpen: false },
-            { name: 'Can', tags: 'Train', isOpen: false },
+            { name: 'BreakfastBox', tags: 'Test', isOpen: false }
         ]);
     
         // 드롭다운 토글 핸들러
@@ -18,8 +17,8 @@ const Detection = () => {
             );
         };
 
-    const imagePaths = Array.from({ length: 20 }, (_, i) => 
-            `/images/Detection/${String(i).padStart(3, '0')}.png`
+    const imagePaths = Array.from({ length: 1 }, (_, i) => 
+            `/images/Detection2/${String(i).padStart(3, '0')}.png`
     ); 
 
     const codetext = `

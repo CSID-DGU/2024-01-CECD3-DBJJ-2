@@ -6,8 +6,7 @@ const Reports = () => {
 
         // 데이터 목록 상태
         const [data, setData] = useState([
-            { name: 'Bottle', tags: 'Test', isOpen: false },
-            { name: 'Can', tags: 'Train', isOpen: false },
+            { name: 'BreakfastBox', tags: 'Test', isOpen: false }
         ]);
     
         // 드롭다운 토글 핸들러
@@ -19,13 +18,18 @@ const Reports = () => {
             );
         };
 
-    const images = Array.from({ length: 20 }, (_, i) => ({
-        path: `/images/Reports/${String(i + 1).padStart(3, '0')}_mask.png`,
-        tableData: `Table Data for Image ${i + 1}`,
-        resultImage: `/images/Results/${String(i + 1).padStart(3, '0')}.png`
-    }));
+        const images = Array.from({ length: 1 }, (_, i) => ({
+            path: `/images/Reports2/${String(i).padStart(3, '0')}.png`
+        }));
 
-    const [selectedIndex, setSelectedIndex] = useState(0);
+        const [selectedIndex, setSelectedIndex] = useState(0);
+
+        const resultImages = Array.from({ length: 4 }, (_, i) =>
+    `/images/Results2/${String(selectedIndex).padStart(3, '0')}_${String(i).padStart(3, '0')}.png`
+
+    );
+
+
 
     return (
         <div class="full-container">
@@ -57,12 +61,12 @@ const Reports = () => {
             </div>
 
             <div class="det-container">
-                <div class="pic-view">
-                {images.map((image, index) => (
+            <div className="pic-view">
+                    {images.map((image, index) => (
                         <img
                             key={index}
                             src={image.path}
-                            alt={`Sample ${index + 1}`}
+                            alt={`Report ${index}`}
                             className="sample-image"
                             onClick={() => setSelectedIndex(index)} // 이미지 클릭 시 상태 업데이트
                             style={{
@@ -70,7 +74,7 @@ const Reports = () => {
                                 cursor: 'pointer'
                             }}
                         />
-                ))}
+                    ))}
                 </div>
 
                 <div class="result-view">
@@ -94,16 +98,23 @@ const Reports = () => {
                             </tbody>
                         </table>
                     </div>
-                    <div class="result-pic">
-                    <img
-                            src={images[selectedIndex].resultImage}
-                            alt={`Result for Image ${selectedIndex + 1}`}
-                            className="sample-image"
-                        />
+
+                    <div className="result-view">
+                        <div className="result-pic">
+                            {resultImages.map((resultImage, idx) => (
+                                <img
+                                    key={idx}
+                                    src={resultImage}
+                                    alt={`Result ${idx}`}
+                                    className="sample-image"
+                                    style={{ margin: '5px', maxWidth: '100px', maxHeight: '100px' }}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-            </div> 
+        </div> 
     );
 };
 

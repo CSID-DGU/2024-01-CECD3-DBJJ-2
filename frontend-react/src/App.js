@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DataUpload from './pages/DataUpload';
 import Detection from './pages/Detection';
 import Reports from './pages/Reports';
+import Detection2 from './pages/Detection2';
+import Reports2 from './pages/Reports2';
 import Layout from './components/Layout';
 import Dataset from './pages/DataSet';
 
@@ -15,7 +17,7 @@ function App() {
           <Route path="/" element={<h1>대박징징자라자라조's Main Page</h1>} />
           <Route path="/data-upload" element={<DataUpload />} />
           <Route path="/dataset" element={<Dataset />} />
-          <Route path="/detection" element={<Detection />} />
+          <Route path="/detection" element={<Detection2  />} />
           <Route path="/reports" element={<Reports  />} />
         </Routes>
       </Layout>

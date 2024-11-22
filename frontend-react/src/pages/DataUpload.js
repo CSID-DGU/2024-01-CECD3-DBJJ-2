@@ -4,7 +4,7 @@ import '../styles/DataUpload.css'; // CSS 파일 가져오기
 
 const DataUpload = () => {
   const [dataName, setDataName] = useState('');
-  const [tags, setTags] = useState('');
+  const [anomalyDetail, setAnomalyDetail] = useState('logical'); // 초기값 설정
   const [files, setFiles] = useState([]);
 
   const onDrop = (acceptedFiles) => {
@@ -27,13 +27,14 @@ const DataUpload = () => {
           onChange={(e) => setDataName(e.target.value)}
           className="input"
         />
-        <input
-          type="text"
-          placeholder="Tags"
-          value={tags}
-          onChange={(e) => setTags(e.target.value)}
+        <select
+          value={anomalyDetail}
+          onChange={(e) => setAnomalyDetail(e.target.value)}
           className="input"
-        />
+        >
+          <option value="logical">Logical</option>
+          <option value="structural">Structural</option>
+        </select>
       </div>
       <div {...getRootProps()} className="dropzone">
         <input {...getInputProps()} />
@@ -43,7 +44,9 @@ const DataUpload = () => {
       </div>
       <div>
         {files.map((file) => (
-          <p key={file.path}>{file.path} - {file.size} bytes</p>
+          <p key={file.path}>
+            {file.path} - {file.size} bytes
+          </p>
         ))}
       </div>
     </div>

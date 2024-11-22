@@ -1,3 +1,9 @@
+.full {
+  padding: 20px;
+  border: 1px solid #ddd; /* 테두리 추가 */
+  border-radius: 8px; /* 모서리 둥글게 */
+}
+
 .dataset {
   padding: 20px;
   border: 1px solid #ddd; /* 테두리 추가 */
@@ -17,3 +23,4 @@
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+
