@@ -95,10 +95,10 @@ const Reports = () => {
                         </table>
                     </div>
                     <div class="result-pic">
-                    <img
+                        <img
                             src={images[selectedIndex].resultImage}
                             alt={`Result for Image ${selectedIndex + 1}`}
-                            className="sample-image"
+
                         />
                     </div>
                 </div>

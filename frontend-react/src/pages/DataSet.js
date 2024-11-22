@@ -1,4 +1,3 @@
-// src/pages/Dataset.js
 import React from 'react';
 import DatasetItem from '../components/DatasetItem';
 import '../styles/Dataset.css';
@@ -30,25 +29,55 @@ const Dataset = () => {
     },
   ];
 
+  // Structural과 Logical 데이터를 필터링
+  const structuralData = data.filter((item) => item.type === 'Structural');
+  const logicalData = data.filter((item) => item.type === 'Logical');
+
   return (
-    <div className="dataset">
-      <table className="dataset-table">
-        <thead>
-          <tr>
-            <th>Data Name</th>
-            <th>Tags</th>
-            <th>Detail Type</th>
-            <th>Size</th>
-            <th>Date</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <DatasetItem key={index} item={item} />
-          ))}
-        </tbody>
-      </table>
+    <div className="full">
+      {/* Structural Section */}
+      <div className="dataset">
+        <h2>Structural</h2>
+        <table className="dataset-table">
+          <thead>
+            <tr>
+              <th>Data Name</th>
+              <th>Tags</th>
+              <th>Detail Type</th>
+              <th>Size</th>
+              <th>Date</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {structuralData.map((item, index) => (
+              <DatasetItem key={index} item={item} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Logical Section */}
+      <div className="dataset">
+        <h2>Logical</h2>
+        <table className="dataset-table">
+          <thead>
+            <tr>
+              <th>Data Name</th>
+              <th>Tags</th>
+              <th>Detail Type</th>
+              <th>Size</th>
+              <th>Date</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {logicalData.map((item, index) => (
+              <DatasetItem key={index} item={item} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

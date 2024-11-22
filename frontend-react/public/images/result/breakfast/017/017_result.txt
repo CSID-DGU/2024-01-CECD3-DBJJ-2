@@ -1,0 +1,4 @@
+Class Counts:
+orange: 3
+apple: 1
+grain: 1

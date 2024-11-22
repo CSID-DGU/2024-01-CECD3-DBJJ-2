@@ -1,7 +1,22 @@
-.result-view {
-    padding: 20px;
+
+.code-view {
     height: 50%;
-    gap: 20px; /* 요소 간 간격 */
+    border: 1px solid #ddd; /* 테두리 추가 */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    font-size: 14px; /* 폰트 크기 조정 */
+    line-height: 1.6; /* 텍스트 간격 */
+    white-space: pre-wrap; /* 공백과 줄바꿈 유지, 자동 줄바꿈 */
+    word-wrap: break-word; /* 긴 단어 자동 줄바꿈 */
+    overflow-wrap: break-word; /* 긴 단어 자동 줄바꿈 (표준 속성) */
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.result-view {
+    padding: 10px;
+    height: 50%;
+    gap: 10px; /* 요소 간 간격 */
     border: 1px solid #ddd; /* 테두리 추가 */
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
@@ -11,7 +26,6 @@
 }
 
 .result-table {
-    width: 100%;
     height: auto;
     background-color: #fff;
     padding: 10px;
@@ -37,13 +51,21 @@
 }
 
 .result-pic {
+    height: 50%; /* 높이 지정 */
+}
+
+.result-pic img {
+    max-width: 100%; /* 이미지 최대 너비를 컨테이너의 80%로 제한 */
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+.result-pic2 {
     display: flex; /* 플렉스박스 활성화 */
     flex-direction: row; /* 가로 정렬 */
     align-items: center; /* 세로 중앙 정렬 */
     gap: 10px; /* 각 이미지 간 여백 */
-    width: 100%; /* 가로 전체 크기 */
+    object-fit: contain; /* 이미지 비율 유지 */
+    flex-shrink: 0; /* 이미지가 작아지지 않도록 설정 */
     height: 50%; /* 높이 지정 */
-    background-color: #fff; /* 배경색 */
     padding: 10px; /* 내부 여백 추가 */
-    box-sizing: border-box; /* 패딩 포함 */
 }

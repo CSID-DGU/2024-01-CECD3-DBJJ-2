@@ -2,24 +2,35 @@ import React, { useState } from 'react';
 import '../styles/Detection.css';
 
 const Detection = () => {
+    // 데이터 목록 상태
+    const [data, setData] = useState([
+        { name: 'breakfast', tags: 'Test', isOpen: false },
+        { name: 'pushPins', tags: 'Test', isOpen: false },
+        { name: 'screwBag', tags: 'Test', isOpen: false }
+    ]);
 
-        // 데이터 목록 상태
-        const [data, setData] = useState([
-            { name: 'BreakfastBox', tags: 'Test', isOpen: false }
-        ]);
-    
-        // 드롭다운 토글 핸들러
-        const toggleDropdown = (index) => {
-            setData((prevData) =>
-                prevData.map((item, i) =>
-                    i === index ? { ...item, isOpen: !item.isOpen } : item
-                )
-            );
-        };
+    // 현재 선택된 데이터셋 상태
+    const [selectedDataset, setSelectedDataset] = useState('breakfast');
+    const [imagePaths, setImagePaths] = useState([]);
 
-    const imagePaths = Array.from({ length: 1 }, (_, i) => 
-            `/images/Detection2/${String(i).padStart(3, '0')}.png`
-    ); 
+    // 드롭다운 토글 핸들러
+    const toggleDropdown = (index) => {
+        setData((prevData) =>
+            prevData.map((item, i) =>
+                i === index ? { ...item, isOpen: !item.isOpen } : item
+            )
+        );
+    };
+
+    // 데이터셋 클릭 시 이미지 로드
+    const loadImages = (datasetName) => {
+        setSelectedDataset(datasetName);
+        // 이미지 경로 업데이트
+        const paths = Array.from({ length: 21 }, (_, i) =>
+            `/images/data/${datasetName}/${String(i).padStart(3, '0')}.png`
+        );
+        setImagePaths(paths);
+    };
 
     const codetext = `
         now detecting ...
@@ -30,9 +41,9 @@ const Detection = () => {
     `;
 
     return (
-        <div class="full-container">
-            <div class="data-set">
-            <table className="data-table">
+        <div className="full-container">
+            <div className="data-set">
+                <table className="data-table">
                     <thead>
                         <tr>
                             <th>DataName</th>
@@ -42,7 +53,12 @@ const Detection = () => {
                     <tbody>
                         {data.map((item, index) => (
                             <React.Fragment key={index}>
-                                <tr onClick={() => toggleDropdown(index)}>
+                                <tr
+                                    onClick={() => {
+                                        toggleDropdown(index);
+                                        loadImages(item.name); // 선택된 데이터셋 로드
+                                    }}
+                                >
                                     <td>{item.name}</td>
                                     <td></td>
                                 </tr>
@@ -57,25 +73,25 @@ const Detection = () => {
                     </tbody>
                 </table>
             </div>
-            <div class="det-container">
-                <div class="pic-view">
-                {imagePaths.map((path, index) => (
+
+            <div className="det-container">
+                <div className="pic-view">
+                    {imagePaths.map((path, index) => (
                         <img
                             key={index}
                             src={path}
                             alt={`Sample ${index + 1}`}
-                            className="sample-image"
+                            className="sample-image2"
                         />
                     ))}
                 </div>
 
-                <div class="code-view">
-                <pre>{codetext}</pre>
+                <div className="code-view">
+                    <pre>{codetext}</pre>
                 </div>
             </div>
-            </div> 
+        </div>
     );
-
 };
 
 export default Detection;

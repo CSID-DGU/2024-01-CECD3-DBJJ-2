@@ -3,38 +3,57 @@ import '../styles/Detection.css';
 import '../styles/Reports.css';
 
 const Reports = () => {
+    const [data, setData] = useState([
+        { name: 'breakfast', tags: 'Test', isOpen: false },
+        { name: 'pushPins', tags: 'Test', isOpen: false },
+        { name: 'screwBag', tags: 'Test', isOpen: false },
+    ]);
 
-        // 데이터 목록 상태
-        const [data, setData] = useState([
-            { name: 'BreakfastBox', tags: 'Test', isOpen: false }
-        ]);
-    
-        // 드롭다운 토글 핸들러
-        const toggleDropdown = (index) => {
-            setData((prevData) =>
-                prevData.map((item, i) =>
-                    i === index ? { ...item, isOpen: !item.isOpen } : item
-                )
-            );
-        };
+    const [selectedDataset, setSelectedDataset] = useState('breakfast');
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+    const [resultText, setResultText] = useState('');
+    const [labelImages, setLabelImages] = useState([]);
+    const [resultImages, setResultImages] = useState([]);
 
-        const images = Array.from({ length: 1 }, (_, i) => ({
-            path: `/images/Reports2/${String(i).padStart(3, '0')}.png`
-        }));
+    const toggleDropdown = (index) => {
+        setData((prevData) =>
+            prevData.map((item, i) =>
+                i === index ? { ...item, isOpen: !item.isOpen } : item
+            )
+        );
+        loadLabelImages(data[index].name);
+    };
 
-        const [selectedIndex, setSelectedIndex] = useState(0);
+    const loadLabelImages = (dataset) => {
+        setSelectedDataset(dataset);
+        const imagePaths = Array.from({ length: 21 }, (_, i) =>
+            `/images/result/${dataset}/label_visualization/${String(i).padStart(3, '0')}_label_visualization.png`
+        );
+        setLabelImages(imagePaths);
+    };
 
-        const resultImages = Array.from({ length: 4 }, (_, i) =>
-    `/images/Results2/${String(selectedIndex).padStart(3, '0')}_${String(i).padStart(3, '0')}.png`
+    const handleImageClick = (index) => {
+        setSelectedImageIndex(index);
 
-    );
+        const resultTextPath = `/images/result/${selectedDataset}/${String(index).padStart(3, '0')}/${String(index).padStart(3, '0')}_result.txt`;
+        fetch(resultTextPath)
+            .then((response) => response.text())
+            .then((text) => setResultText(text))
+            .catch((error) => {
+                console.error('Failed to fetch result text:', error);
+                setResultText('Error loading result text.');
+            });
 
-
+        const resultImagePaths = Array.from({ length: 5 }, (_, i) =>
+            `/images/result/${selectedDataset}/${String(index).padStart(3, '0')}/${String(index).padStart(3, '0')}_crop_${i}.png`
+        );
+        setResultImages(resultImagePaths);
+    };
 
     return (
-        <div class="full-container">
-            <div class="data-set">
-            <table className="data-table">
+        <div className="full-container">
+            <div className="data-set">
+                <table className="data-table">
                     <thead>
                         <tr>
                             <th>DataName</th>
@@ -60,61 +79,49 @@ const Reports = () => {
                 </table>
             </div>
 
-            <div class="det-container">
-            <div className="pic-view">
-                    {images.map((image, index) => (
-                        <img
-                            key={index}
-                            src={image.path}
-                            alt={`Report ${index}`}
-                            className="sample-image"
-                            onClick={() => setSelectedIndex(index)} // 이미지 클릭 시 상태 업데이트
-                            style={{
-                                border: selectedIndex === index ? '3px solid blue' : 'none', // 선택된 이미지 강조
-                                cursor: 'pointer'
-                            }}
-                        />
-                    ))}
+            <div className="det-container">
+                <div className="pic-view">
+                    {labelImages.length > 0 ? (
+                        labelImages.map((path, index) => (
+                            <img
+                                key={index}
+                                src={path}
+                                alt={`Label Visualization ${index}`}
+                                className="sample-image2"
+                                onClick={() => handleImageClick(index)}
+                                style={{
+                                    border: selectedImageIndex === index ? '3px solid blue' : 'none',
+                                    cursor: 'pointer',
+                                }}
+                            />
+                        ))
+                    ) : (
+                        <p>No images available</p>
+                    )}
                 </div>
 
-                <div class="result-view">
-                <div className="result-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Data Name</th>
-                                    <th>Tags</th>
-                                    <th>Detail Type</th>
-                                    <th>Anomaly Type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bottle</td>
-                                    <td>Production</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div className="result-view">
+                    <div className="result-text">
+                        <pre>{resultText}</pre>
                     </div>
-
-                    <div className="result-view">
-                        <div className="result-pic">
-                            {resultImages.map((resultImage, idx) => (
-                                <img
-                                    key={idx}
-                                    src={resultImage}
-                                    alt={`Result ${idx}`}
-                                    className="sample-image"
-                                    style={{ margin: '5px', maxWidth: '100px', maxHeight: '100px' }}
-                                />
-                            ))}
-                        </div>
+                    <div className="result-pic2">
+                        {resultImages.map((resultImage, idx) => (
+                            <img
+                                key={idx}
+                                src={resultImage}
+                                alt={`Result Crop ${idx}`}
+                                className="sample-image"
+                                style={{
+                                    margin: '5px',
+                                    maxWidth: '100px',
+                                    maxHeight: '100px',
+                                }}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     );
 };
 

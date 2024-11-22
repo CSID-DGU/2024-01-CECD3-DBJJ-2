@@ -18,7 +18,7 @@ function App() {
           <Route path="/data-upload" element={<DataUpload />} />
           <Route path="/dataset" element={<Dataset />} />
           <Route path="/detection" element={<Detection2  />} />
-          <Route path="/reports" element={<Reports  />} />
+          <Route path="/reports" element={<Reports2  />} />
         </Routes>
       </Layout>
     </Router>
