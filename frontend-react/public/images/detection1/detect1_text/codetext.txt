@@ -1,0 +1,43 @@
+/home/gpu_06/.conda/envs/lhj/lib/python3.10/site-packages/kornia/feature/lightglue.py:44: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @torch.cuda.amp.custom_fwd(cast_inputs=torch.float32)
+/home/gpu_06/.conda/envs/lhj/lib/python3.10/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA RTX A6000') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [6]
+/home/gpu_06/.conda/envs/lhj/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:182: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params | Mode 
+---------------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M | train
+1 | _transform            | Compose                  | 0      | train
+2 | normalization_metrics | MetricCollection         | 0      | train
+3 | image_threshold       | F1AdaptiveThreshold      | 0      | train
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0      | train
+5 | image_metrics         | AnomalibMetricCollection | 0      | train
+6 | pixel_metrics         | AnomalibMetricCollection | 0      | train
+---------------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+17        Modules in train mode
+174       Modules in eval mode
+/home/gpu_06/.conda/envs/lhj/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py:298: The number of training batches (7) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+Epoch 0:   0%|                                                                                                           | 0/7 [00:00<?, ?it/s]/home/gpu_06/.conda/envs/lhj/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:132: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Selecting Coreset Indices.: 100%|███████████████████████████████████████████████████████████████████████| 16385/16385 [00:25<00:00, 654.57it/s]
+Epoch 0: 100%|██████████████████████████████████████████████████| 7/7 [00:28<00:00,  0.24it/s, v_num=8, pixel_AUROC=0.686, pixel_F1Score=0.140]`Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                 
+Epoch 0: 100%|██████████████████████████████████████████████████| 7/7 [00:30<00:00,  0.23it/s, v_num=8, pixel_AUROC=0.686, pixel_F1Score=0.140]
+/home/gpu_06/anomalib/src/anomalib/engine/engine.py:391: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(ckpt_path, map_location=model.device)
+F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+Restoring states from the checkpoint path at /home/gpu_06/anomalib/results/Patchcore/MVTec/bottle/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [6]
+Loaded model weights from the checkpoint at /home/gpu_06/anomalib/results/Patchcore/MVTec/bottle/v0/weights/lightning/model.ckpt
+Predicting DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████| 3/3 [00:34<00:00,  0.09it/s]
+predictions가 predictions.txt 파일에 저장되었습니다.

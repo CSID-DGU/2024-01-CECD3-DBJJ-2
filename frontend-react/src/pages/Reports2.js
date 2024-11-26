@@ -4,9 +4,9 @@ import '../styles/Reports.css';
 
 const Reports = () => {
     const [data, setData] = useState([
-        { name: 'breakfast', tags: 'Test', isOpen: false },
-        { name: 'pushPins', tags: 'Test', isOpen: false },
-        { name: 'screwBag', tags: 'Test', isOpen: false },
+        { name: 'breakfast', tags: 'Test', type: 'good', isOpen: false },
+        { name: 'pushPins', tags: 'Test', type: 'good', isOpen: false },
+        { name: 'screwBag', tags: 'Test', type: 'good', isOpen: false },
     ]);
 
     const [selectedDataset, setSelectedDataset] = useState('breakfast');
@@ -14,6 +14,8 @@ const Reports = () => {
     const [resultText, setResultText] = useState('');
     const [labelImages, setLabelImages] = useState([]);
     const [resultImages, setResultImages] = useState([]);
+    const [selectedData, setSelectedData] = useState(null);
+
 
     const toggleDropdown = (index) => {
         setData((prevData) =>
@@ -48,6 +50,9 @@ const Reports = () => {
             `/images/result/${selectedDataset}/${String(index).padStart(3, '0')}/${String(index).padStart(3, '0')}_crop_${i}.png`
         );
         setResultImages(resultImagePaths);
+
+        const clickedData = data.find((item) => item.name === selectedDataset);
+        setSelectedData(clickedData || null);
     };
 
     return (
@@ -101,6 +106,30 @@ const Reports = () => {
                 </div>
 
                 <div className="result-view">
+                    <div className="result-table">
+                    <table>
+                            <thead>
+                                <tr>
+                                    <th>Data Name</th>
+                                    <th>Tags</th>
+                                    <th>Anomaly Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {selectedData ? (
+                                    <tr>
+                                        <td>{selectedData.name}</td>
+                                        <td>{selectedData.tags}</td>
+                                        <td>{selectedData.type}</td>
+                                    </tr>
+                                ) : (
+                                    <tr>
+                                        <td colSpan="3">No data selected</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                     <div className="result-text">
                         <pre>{resultText}</pre>
                     </div>

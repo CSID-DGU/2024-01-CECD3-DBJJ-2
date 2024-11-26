@@ -35,7 +35,7 @@
 .mteam-name {
   font-size: 7rem;
   font-weight: bold;
-  background: -webkit-linear-gradient(#ffffff, #3c4fce); /* 그라디언트 효과 */
+  background: -webkit-linear-gradient(#e0e0e0, #263dd1); /* 그라디언트 효과 */
   -webkit-background-clip: text;
   color: transparent;
   text-transform: uppercase;

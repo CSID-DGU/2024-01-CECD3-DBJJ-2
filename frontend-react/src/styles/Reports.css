@@ -16,13 +16,21 @@
 .result-view {
     padding: 10px;
     height: 50%;
-    gap: 10px; /* 요소 간 간격 */
+    gap: 5px; /* 요소 간 간격 */
     border: 1px solid #ddd; /* 테두리 추가 */
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
     display: flex;
     flex-direction: column; /* 세로로 배열 */
-    justify-content: center; 
+    justify-content: center;
+}
+
+.result-text {
+    font-size: 17px; /* 폰트 크기 증가 */
+    font-weight: 600; /* 굵기 조정 */
+    letter-spacing: 2px; /* 글자 간격 약간 조정 */
+    padding-left: 30px; /* 왼쪽 여백 */
+    font-family: 'Georgia', serif; /* 세리프체 사용으로 고급스러운 느낌 */
 }
 
 .result-table {
@@ -66,6 +74,6 @@
     gap: 10px; /* 각 이미지 간 여백 */
     object-fit: contain; /* 이미지 비율 유지 */
     flex-shrink: 0; /* 이미지가 작아지지 않도록 설정 */
-    height: 50%; /* 높이 지정 */
+    height: 20%; /* 높이 지정 */
     padding: 10px; /* 내부 여백 추가 */
 }

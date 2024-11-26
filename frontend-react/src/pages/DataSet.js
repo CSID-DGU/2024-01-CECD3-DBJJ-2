@@ -6,7 +6,7 @@ const Dataset = () => {
   const [data, setData] = useState([
     {
       name: 'Bottle',
-      type: 'Structural', // Structural로 고정
+      type: 'Structural',
       size: '180MB',
       date: '03/10/2024',
       details: [
@@ -18,7 +18,7 @@ const Dataset = () => {
     },
     {
       name: 'Pushpins',
-      type: 'Logical', // 라디오 버튼으로 선택 가능
+      type: 'Logical',
       size: '180MB',
       date: '03/10/2024',
       details: [
@@ -28,18 +28,18 @@ const Dataset = () => {
       ],
     },
   ]);
+
   const handleTypeChange = (itemIndex, newType) => {
     const updatedData = [...data];
     updatedData[itemIndex].type = newType;
     setData(updatedData);
   };
-  // Structural과 Logical 데이터를 필터링
+
   const structuralData = data.filter((item) => item.name === 'Bottle');
   const logicalData = data.filter((item) => item.name === 'Pushpins');
 
   return (
     <div className="full">
-      {/* Structural Section */}
       <div className="dataset">
         <h2>Structural</h2>
         <table className="dataset-table">
@@ -58,13 +58,13 @@ const Dataset = () => {
               <DatasetItem
                 key={index}
                 item={item}
-                onTypeChange={() => {}} // Structural은 고정이므로 변경 불가
+                onTypeChange={() => {}} // Structural은 고정
               />
             ))}
           </tbody>
         </table>
       </div>
-      {/* Logical Section */}
+
       <div className="dataset">
         <h2>Logical</h2>
         <table className="dataset-table">

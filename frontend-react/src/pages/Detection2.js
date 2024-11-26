@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Detection.css';
 
 const Detection = () => {
@@ -8,6 +8,10 @@ const Detection = () => {
         { name: 'pushPins', tags: 'Test', isOpen: false },
         { name: 'screwBag', tags: 'Test', isOpen: false }
     ]);
+
+    // 코드 텍스트 상태
+    const [codetext, setCodetext] = useState('');
+    
 
     // 현재 선택된 데이터셋 상태
     const [selectedDataset, setSelectedDataset] = useState('breakfast');
@@ -32,13 +36,13 @@ const Detection = () => {
         setImagePaths(paths);
     };
 
-    const codetext = `
-        now detecting ...
-        Selecting Coreset Indices.: 100%|████████████████████████| 4704/4704 [00:07<00:00, 593.97it/s]
-        Epoch 0: 100%|██████████████████████████████| 2/2 [00:09<00:00, 0.21it/s, image_AUROC=0.500, image_F1Score=0.769]
-        Trainer.fit stopped: max_epochs=1 reached.
-        Epoch 0: 100%|██████████████████████████████| 2/2 [00:10<00:00, 0.19it/s, image_AUROC=0.500, image_F1Score=0.769]
-    `;
+    // 텍스트 파일을 불러오는 useEffect
+    useEffect(() => {
+        fetch('/images/detection1/detect1_text/codetext.txt')
+            .then((response) => response.text())
+            .then((text) => setCodetext(text))
+            .catch((error) => console.error('Failed to load codetext.txt:', error));
+    }, []);
 
     return (
         <div className="full-container">

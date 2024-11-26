@@ -64,6 +64,7 @@
     overflow-wrap: break-word; /* 긴 단어 자동 줄바꿈 (표준 속성) */
     overflow-x: auto;
     overflow-y: auto;
+    padding-left: 30px;
 }
 
 .data-table {
