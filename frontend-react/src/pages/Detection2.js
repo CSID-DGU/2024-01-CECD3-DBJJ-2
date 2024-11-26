@@ -29,20 +29,30 @@ const Detection = () => {
     // 데이터셋 클릭 시 이미지 로드
     const loadImages = (datasetName) => {
         setSelectedDataset(datasetName);
+
         // 이미지 경로 업데이트
-        const paths = Array.from({ length: 21 }, (_, i) =>
-            `/images/data/${datasetName}/${String(i).padStart(3, '0')}.png`
+        const paths = Array.from({ length: 20 }, (_, i) =>
+            `/images/detection2/data/${datasetName}/${String(i + 1).padStart(3, '0')}.png`
         );
         setImagePaths(paths);
-    };
 
-    // 텍스트 파일을 불러오는 useEffect
-    useEffect(() => {
-        fetch('/images/detection1/detect1_text/codetext.txt')
-            .then((response) => response.text())
+        // 텍스트 파일 경로 생성
+        const textFilePath = `/images/detection2/text/${datasetName}.txt`;
+
+        // 텍스트 파일 로드
+        fetch(textFilePath)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch text file: ${response.statusText}`);
+                }
+                return response.text();
+            })
             .then((text) => setCodetext(text))
-            .catch((error) => console.error('Failed to load codetext.txt:', error));
-    }, []);
+            .catch((error) => {
+                console.error('Failed to load text file:', error);
+                setCodetext('Error loading text file.');
+            });
+    };
 
     return (
         <div className="full-container">

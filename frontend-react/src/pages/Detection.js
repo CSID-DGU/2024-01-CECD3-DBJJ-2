@@ -5,7 +5,7 @@ const Detection = () => {
 
         // 데이터 목록 상태
         const [data, setData] = useState([
-            { name: 'Bottle', tags: 'Test', isOpen: false }
+            { name: 'Bottle', tags: 'Production', isOpen: false }
         ]);
 
         // 코드 텍스트 상태

@@ -1,0 +1,98 @@
+{'pushPin'}
+001.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+002.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+003.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+004.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+005.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+006.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+007.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+008.png에서 pushPin 구성 감지
+오류: pushpin 구성에서 객체가 15개 이상 발견되었습니다.
+
+
+{'pushPin'}
+009.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+010.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+011.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+012.png에서 pushPin 구성 감지
+오류: pushpin 구성에서 객체가 15개 이상 발견되었습니다.
+
+
+{'pushPin'}
+013.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+014.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+015.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+016.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+017.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+018.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+019.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.
+
+
+{'pushPin'}
+020.png에서 pushPin 구성 감지
+정상: pushpin 구성에서 객체 개수가 적절합니다.

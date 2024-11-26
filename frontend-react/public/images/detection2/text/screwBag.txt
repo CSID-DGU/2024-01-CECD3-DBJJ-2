@@ -1,0 +1,97 @@
+{'nut', 'bolt'}
+001.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+002.png에서 bolt와 nut 구성 감지
+오류: bolt는 2개, nut는 4개여야 합니다. (현재 bolt: 2, nut: 5)
+
+
+{'nut', 'bolt'}
+003.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+{'nut', 'bolt'}
+004.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+005.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+006.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+007.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+008.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+009.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+010.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+011.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+012.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+013.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+014.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+015.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+016.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+017.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+018.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+019.png에서 bolt와 nut 구성 감지
+정상: bolt와 nut 개수가 적절합니다.
+
+
+{'nut', 'bolt'}
+020.png에서 bolt와 nut 구성 감지
+오류: bolt는 2개, nut는 4개여야 합니다. (현재 bolt: 3, nut: 4)

@@ -1,0 +1,98 @@
+{'apple', 'grain', 'orange'}
+001.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+002.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+003.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+004.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+005.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+006.png에서 fruit_grain 구성 감지
+오류: apple은 1개, orange는 2개, grain은 1개여야 합니다.
+
+
+{'apple', 'grain', 'orange'}
+007.png에서 fruit_grain 구성 감지
+오류: apple은 1개, orange는 2개, grain은 1개여야 합니다.
+
+
+{'apple', 'grain', 'orange'}
+008.png에서 fruit_grain 구성 감지
+오류: apple은 1개, orange는 2개, grain은 1개여야 합니다.
+
+
+{'apple', 'grain', 'orange'}
+009.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+010.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+011.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+012.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+013.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+014.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+015.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+016.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+017.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+018.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+019.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.
+
+
+{'apple', 'grain', 'orange'}
+020.png에서 fruit_grain 구성 감지
+정상: apple와 orange 개수가 적절합니다. grain 비율이 적절합니다.

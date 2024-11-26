@@ -1,3 +1,0 @@
-Class Counts:
-bolt: 2
-nut: 4

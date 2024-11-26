@@ -4,9 +4,9 @@ import '../styles/Reports.css';
 
 const Reports = () => {
     const [data, setData] = useState([
-        { name: 'breakfast', tags: 'Test', type: 'good', isOpen: false },
-        { name: 'pushPins', tags: 'Test', type: 'good', isOpen: false },
-        { name: 'screwBag', tags: 'Test', type: 'good', isOpen: false },
+        { name: 'breakfast', tags: 'Production', type: 'good', isOpen: false },
+        { name: 'pushPins', tags: 'Production', type: 'good', isOpen: false },
+        { name: 'screwBag', tags: 'Production', type: 'good', isOpen: false },
     ]);
 
     const [selectedDataset, setSelectedDataset] = useState('breakfast');
@@ -28,8 +28,8 @@ const Reports = () => {
 
     const loadLabelImages = (dataset) => {
         setSelectedDataset(dataset);
-        const imagePaths = Array.from({ length: 21 }, (_, i) =>
-            `/images/result/${dataset}/label_visualization/${String(i).padStart(3, '0')}_label_visualization.png`
+        const imagePaths = Array.from({ length: 20 }, (_, i) =>
+            `/images/detection2/result/${dataset}/label_visualization/${String(i+1).padStart(3, '0')}_label_visualization.png`
         );
         setLabelImages(imagePaths);
     };
@@ -37,7 +37,7 @@ const Reports = () => {
     const handleImageClick = (index) => {
         setSelectedImageIndex(index);
 
-        const resultTextPath = `/images/result/${selectedDataset}/${String(index).padStart(3, '0')}/${String(index).padStart(3, '0')}_result.txt`;
+        const resultTextPath = `/images/detection2/result/${selectedDataset}/${String(index+1).padStart(3, '0')}/${String(index+1).padStart(3, '0')}_result.txt`;
         fetch(resultTextPath)
             .then((response) => response.text())
             .then((text) => setResultText(text))
@@ -47,13 +47,28 @@ const Reports = () => {
             });
 
         const resultImagePaths = Array.from({ length: 5 }, (_, i) =>
-            `/images/result/${selectedDataset}/${String(index).padStart(3, '0')}/${String(index).padStart(3, '0')}_crop_${i}.png`
+            `/images/detection2/result/${selectedDataset}/${String(index+1).padStart(3, '0')}/${String(index+1).padStart(3, '0')}_crop_${i}.png`
         );
         setResultImages(resultImagePaths);
 
         const clickedData = data.find((item) => item.name === selectedDataset);
-        setSelectedData(clickedData || null);
-    };
+        
+            // 타입 결정 로직 추가
+        let type = 'good'; // 기본값
+        if (selectedDataset === 'breakfast') {
+            if ([19, 20].includes(index + 1)) type = 'structural';
+            if ([6, 7, 8].includes(index + 1)) type = 'logical';
+        } else if (selectedDataset === 'pushPins') {
+            if ([3, 9, 20].includes(index + 1)) type = 'structural';
+            if ([8, 12].includes(index + 1)) type = 'logical';
+        } else if (selectedDataset === 'screwBag') {
+            if ([1, 3].includes(index + 1)) type = 'structural';
+            if ([2, 20].includes(index + 1)) type = 'logical';
+        }
+
+        // 선택한 데이터에 타입 추가
+        setSelectedData({ ...clickedData, type });
+        };
 
     return (
         <div className="full-container">
@@ -85,9 +100,23 @@ const Reports = () => {
             </div>
 
             <div className="det-container">
-                <div className="pic-view">
-                    {labelImages.length > 0 ? (
-                        labelImages.map((path, index) => (
+            <div className="pic-view">
+                {labelImages.length > 0 ? (
+                    labelImages.map((path, index) => {
+                        // Determine border color based on type
+                        let borderColor = 'none'; // Default (no border)
+                        if (selectedDataset === 'breakfast') {
+                            if ([19, 20].includes(index + 1)) borderColor = 'yellow'; // Structural
+                            if ([6, 7, 8].includes(index + 1)) borderColor = 'red';    // Logical
+                        } else if (selectedDataset === 'pushPins') {
+                            if ([3, 9, 20].includes(index + 1)) borderColor = 'yellow'; // Structural
+                            if ([8, 12].includes(index + 1)) borderColor = 'red';      // Logical
+                        } else if (selectedDataset === 'screwBag') {
+                            if ([1, 3].includes(index + 1)) borderColor = 'yellow'; // Structural
+                            if ([2, 20].includes(index + 1)) borderColor = 'red';   // Logical
+                        }
+
+                        return (
                             <img
                                 key={index}
                                 src={path}
@@ -95,21 +124,23 @@ const Reports = () => {
                                 className="sample-image2"
                                 onClick={() => handleImageClick(index)}
                                 style={{
-                                    border: selectedImageIndex === index ? '3px solid blue' : 'none',
+                                    border: selectedImageIndex === index ? '3px solid blue' : `3px solid ${borderColor}`,
                                     cursor: 'pointer',
                                 }}
                             />
-                        ))
-                    ) : (
-                        <p>No images available</p>
-                    )}
-                </div>
+                        );
+                    })
+                ) : (
+                    <p>No images available</p>
+                )}
+            </div>
 
                 <div className="result-view">
                     <div className="result-table">
                     <table>
                             <thead>
                                 <tr>
+                                    <th>No.</th>
                                     <th>Data Name</th>
                                     <th>Tags</th>
                                     <th>Anomaly Type</th>
@@ -118,6 +149,7 @@ const Reports = () => {
                             <tbody>
                                 {selectedData ? (
                                     <tr>
+                                        <td>{selectedImageIndex !== null ? selectedImageIndex + 1 : '-'}</td>
                                         <td>{selectedData.name}</td>
                                         <td>{selectedData.tags}</td>
                                         <td>{selectedData.type}</td>
