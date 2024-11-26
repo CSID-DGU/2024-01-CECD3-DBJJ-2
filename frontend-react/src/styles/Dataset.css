@@ -9,6 +9,11 @@
   border-radius: 8px; /* 모서리 둥글게 */
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+  margin-bottom: 10px;
+}
+
+.dataset h2 {
+  margin-left: 10px;
 }
 
 .dataset-table {

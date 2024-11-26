@@ -29,12 +29,6 @@ const Dataset = () => {
     },
   ]);
 
-  const handleTypeChange = (itemIndex, newType) => {
-    const updatedData = [...data];
-    updatedData[itemIndex].type = newType;
-    setData(updatedData);
-  };
-
   const structuralData = data.filter((item) => item.name === 'Bottle');
   const logicalData = data.filter((item) => item.name === 'Pushpins');
 
@@ -55,11 +49,7 @@ const Dataset = () => {
           </thead>
           <tbody>
             {structuralData.map((item, index) => (
-              <DatasetItem
-                key={index}
-                item={item}
-                onTypeChange={() => {}} // Structural은 고정
-              />
+              <DatasetItem key={index} item={item} />
             ))}
           </tbody>
         </table>
@@ -80,11 +70,7 @@ const Dataset = () => {
           </thead>
           <tbody>
             {logicalData.map((item, index) => (
-              <DatasetItem
-                key={index}
-                item={item}
-                onTypeChange={(newType) => handleTypeChange(index, newType)}
-              />
+              <DatasetItem key={index} item={item} />
             ))}
           </tbody>
         </table>
