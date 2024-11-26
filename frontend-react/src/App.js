@@ -17,8 +17,8 @@ function App() {
           <Route path="/" element={<h1>대박징징자라자라조's Main Page</h1>} />
           <Route path="/data-upload" element={<DataUpload />} />
           <Route path="/dataset" element={<Dataset />} />
-          <Route path="/detection" element={<Detection2  />} />
-          <Route path="/reports" element={<Reports2  />} />
+          <Route path="/detection" element={<Detection  />} />
+          <Route path="/reports" element={<Reports  />} />
         </Routes>
       </Layout>
     </Router>
