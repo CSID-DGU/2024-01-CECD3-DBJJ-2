@@ -32,8 +32,10 @@ const DataUpload = () => {
           onChange={(e) => setAnomalyDetail(e.target.value)}
           className="input"
         >
-          <option value="logical">Logical</option>
-          <option value="structural">Structural</option>
+          <option value="Structural">Structural</option>
+          <option value="Logical-Count">Logical-Count</option>
+          <option value="Logical-Pair">Logical-Pair</option>
+          <option value="Logical-Portion">Logical-Portion</option>          
         </select>
       </div>
       <div {...getRootProps()} className="dropzone">
