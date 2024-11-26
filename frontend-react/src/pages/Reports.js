@@ -6,8 +6,7 @@ const Reports = () => {
 
         // 데이터 목록 상태
         const [data, setData] = useState([
-            { name: 'Bottle', tags: 'Test', isOpen: false },
-            { name: 'Can', tags: 'Train', isOpen: false },
+            { name: 'Bottle', tags: 'Test', isOpen: false }
         ]);
     
         // 드롭다운 토글 핸들러
@@ -19,11 +18,24 @@ const Reports = () => {
             );
         };
 
-    const images = Array.from({ length: 20 }, (_, i) => ({
-        path: `/images/Reports/${String(i + 1).padStart(3, '0')}_mask.png`,
-        tableData: `Table Data for Image ${i + 1}`,
-        resultImage: `/images/Results/${String(i + 1).padStart(3, '0')}.png`
-    }));
+    const images = Array.from({ length: 22 }, (_, i) => {
+        const anomalyTypes = {
+            3: 'broken_large',
+            5: 'broken_large',
+            6: 'broken_large',
+            20: 'broken_small',
+            21: 'broken_small',
+            9: 'contamination',
+            13: 'contamination',
+        };
+        
+        return {
+            path: `/images/detection1/detect1_report/${String(i).padStart(3, '0')}.png`,
+            tableData: `Table Data for Image ${i}`,
+            resultImage: `/images/detection1/detect1_result/${String(i).padStart(3, '0')}.png`,
+            anomalyType: anomalyTypes[i] || 'good', // 나머지는 'good'
+        };
+    });
 
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -33,7 +45,7 @@ const Reports = () => {
             <table className="data-table">
                     <thead>
                         <tr>
-                            <th>DataName</th>
+                            <th>Data Name</th>
                             <th>Tags</th>
                         </tr>
                     </thead>
@@ -62,7 +74,7 @@ const Reports = () => {
                         <img
                             key={index}
                             src={image.path}
-                            alt={`Sample ${index + 1}`}
+                            alt={`Sample ${index}`}
                             className="sample-image"
                             onClick={() => setSelectedIndex(index)} // 이미지 클릭 시 상태 업데이트
                             style={{
@@ -80,7 +92,6 @@ const Reports = () => {
                                 <tr>
                                     <th>Data Name</th>
                                     <th>Tags</th>
-                                    <th>Detail Type</th>
                                     <th>Anomaly Type</th>
                                 </tr>
                             </thead>
@@ -88,8 +99,7 @@ const Reports = () => {
                                 <tr>
                                     <td>Bottle</td>
                                     <td>Production</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{images[selectedIndex].anomalyType}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -97,7 +107,7 @@ const Reports = () => {
                     <div class="result-pic">
                         <img
                             src={images[selectedIndex].resultImage}
-                            alt={`Result for Image ${selectedIndex + 1}`}
+                            alt={`Result for Image ${selectedIndex}`}
 
                         />
                     </div>

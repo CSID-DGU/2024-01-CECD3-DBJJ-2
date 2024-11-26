@@ -1,0 +1,90 @@
+/* 전체 컨테이너 */
+.mmain-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 가운데 내용 컨테이너 */
+.mcontent {
+  text-align: center;
+  padding: 40px;
+  border-radius: 15px;
+  z-index: 1;
+  max-width: 100%;
+  width: 80%;
+  height: auto;
+  min-width: 300px;
+  min-height: 400px;
+  color: white;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 팀명 로고 (DBJJ) */
+.mteam-name {
+  font-size: 7rem;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#ffffff, #3c4fce); /* 그라디언트 효과 */
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+  text-shadow: 3px 3px 10px rgba(143, 143, 143, 0.3);
+}
+
+/* 슬라이딩 메시지 */
+.mbanner-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  color: #3c4fce;
+  margin-bottom: 30px;
+  animation: slideUp 1.5s ease-in-out;
+}
+
+/* 푸터 */
+.mfooter {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  color: #5e5e5e;
+  font-weight: 300;
+  animation: fadeIn 2s ease-in-out;
+  margin-top: 200px;
+}
+
+/* 애니메이션 - 페이드 인 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 애니메이션 - 슬라이드 업 */
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

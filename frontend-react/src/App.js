@@ -1,6 +1,7 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Main from './pages/Main';
 import DataUpload from './pages/DataUpload';
 import Detection from './pages/Detection';
 import Reports from './pages/Reports';
@@ -14,7 +15,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<h1>대박징징자라자라조's Main Page</h1>} />
+          <Route path="" element={<Main />} />
           <Route path="/data-upload" element={<DataUpload />} />
           <Route path="/dataset" element={<Dataset />} />
           <Route path="/detection" element={<Detection  />} />

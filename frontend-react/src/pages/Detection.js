@@ -5,8 +5,7 @@ const Detection = () => {
 
         // 데이터 목록 상태
         const [data, setData] = useState([
-            { name: 'Bottle', tags: 'Test', isOpen: false },
-            { name: 'Can', tags: 'Train', isOpen: false },
+            { name: 'Bottle', tags: 'Test', isOpen: false }
         ]);
     
         // 드롭다운 토글 핸들러
@@ -18,8 +17,8 @@ const Detection = () => {
             );
         };
 
-    const imagePaths = Array.from({ length: 20 }, (_, i) => 
-            `/images/Detection/${String(i).padStart(3, '0')}.png`
+    const imagePaths = Array.from({ length: 22 }, (_, i) => 
+            `/images/detection1/detect1/${String(i).padStart(3, '0')}.png`
     ); 
 
     const codetext = `
@@ -36,7 +35,7 @@ const Detection = () => {
             <table className="data-table">
                     <thead>
                         <tr>
-                            <th>DataName</th>
+                            <th>Data Name</th>
                             <th>Tags</th>
                         </tr>
                     </thead>
@@ -64,7 +63,7 @@ const Detection = () => {
                         <img
                             key={index}
                             src={path}
-                            alt={`Sample ${index + 1}`}
+                            alt={`Sample ${index}`}
                             className="sample-image"
                         />
                     ))}
