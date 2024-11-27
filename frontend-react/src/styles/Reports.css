@@ -75,6 +75,7 @@
     flex-shrink: 0; /* 이미지가 작아지지 않도록 설정 */
     height: 20%; /* 높이 지정 */
     padding: 10px; /* 내부 여백 추가 */
+    overflow-x: auto;
 }
 
 .sample-image2 {

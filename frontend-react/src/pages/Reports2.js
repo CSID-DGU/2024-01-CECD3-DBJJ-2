@@ -4,12 +4,12 @@ import '../styles/Reports.css';
 
 const Reports = () => {
     const [data, setData] = useState([
-        { name: 'breakfast', tags: 'Production', type: 'good', isOpen: false },
-        { name: 'pushPins', tags: 'Production', type: 'good', isOpen: false },
-        { name: 'screwBag', tags: 'Production', type: 'good', isOpen: false },
+        { name: 'Breakfast', tags: 'Test', type: 'good', isOpen: false },
+        { name: 'Pushpins', tags: 'Test', type: 'good', isOpen: false },
+        { name: 'Screwbag', tags: 'Test', type: 'good', isOpen: false },
     ]);
 
-    const [selectedDataset, setSelectedDataset] = useState('breakfast');
+    const [selectedDataset, setSelectedDataset] = useState('Breakfast');
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const [resultText, setResultText] = useState('');
     const [labelImages, setLabelImages] = useState([]);
@@ -23,6 +23,7 @@ const Reports = () => {
                 i === index ? { ...item, isOpen: !item.isOpen } : item
             )
         );
+        setSelectedImageIndex(null);
         loadLabelImages(data[index].name);
     };
 
@@ -46,29 +47,29 @@ const Reports = () => {
                 setResultText('Error loading result text.');
             });
 
-        const resultImagePaths = Array.from({ length: 5 }, (_, i) =>
+        const resultImagePaths = Array.from({ length: 6 }, (_, i) =>
             `/images/detection2/result/${selectedDataset}/${String(index+1).padStart(3, '0')}/${String(index+1).padStart(3, '0')}_crop_${i}.png`
         );
         setResultImages(resultImagePaths);
 
         const clickedData = data.find((item) => item.name === selectedDataset);
         
-            // 타입 결정 로직 추가
+        // 타입 결정 로직 추가
         let type = 'good'; // 기본값
-        if (selectedDataset === 'breakfast') {
+        if (selectedDataset === 'Breakfast') {
             if ([19, 20].includes(index + 1)) type = 'structural';
             if ([6, 7, 8].includes(index + 1)) type = 'logical';
-        } else if (selectedDataset === 'pushPins') {
+        } else if (selectedDataset === 'Pushpins') {
             if ([3, 9, 20].includes(index + 1)) type = 'structural';
             if ([8, 12].includes(index + 1)) type = 'logical';
-        } else if (selectedDataset === 'screwBag') {
+        } else if (selectedDataset === 'Screwbag') {
             if ([1, 3].includes(index + 1)) type = 'structural';
             if ([2, 20].includes(index + 1)) type = 'logical';
         }
 
-        // 선택한 데이터에 타입 추가
+
         setSelectedData({ ...clickedData, type });
-        };
+    };
 
     return (
         <div className="full-container">
@@ -103,29 +104,33 @@ const Reports = () => {
             <div className="pic-view">
                 {labelImages.length > 0 ? (
                     labelImages.map((path, index) => {
-                        // Determine border color based on type
-                        let borderColor = 'none'; // Default (no border)
-                        if (selectedDataset === 'breakfast') {
-                            if ([19, 20].includes(index + 1)) borderColor = 'yellow'; // Structural
+                        let borderColor = 'none';
+                        if (selectedDataset === 'Breakfast') {
+                            if ([19, 20].includes(index + 1)) borderColor = 'blue'; // Structural
                             if ([6, 7, 8].includes(index + 1)) borderColor = 'red';    // Logical
-                        } else if (selectedDataset === 'pushPins') {
-                            if ([3, 9, 20].includes(index + 1)) borderColor = 'yellow'; // Structural
+                        } else if (selectedDataset === 'Pushpins') {
+                            if ([3, 9, 20].includes(index + 1)) borderColor = 'blue'; // Structural
                             if ([8, 12].includes(index + 1)) borderColor = 'red';      // Logical
-                        } else if (selectedDataset === 'screwBag') {
-                            if ([1, 3].includes(index + 1)) borderColor = 'yellow'; // Structural
+                        } else if (selectedDataset === 'Screwbag') {
+                            if ([1, 3].includes(index + 1)) borderColor = 'blue'; // Structural
                             if ([2, 20].includes(index + 1)) borderColor = 'red';   // Logical
                         }
 
                         return (
-                            <img
+                                <img
                                 key={index}
                                 src={path}
                                 alt={`Label Visualization ${index}`}
                                 className="sample-image2"
                                 onClick={() => handleImageClick(index)}
                                 style={{
-                                    border: selectedImageIndex === index ? '3px solid blue' : `3px solid ${borderColor}`,
+                                    border: selectedImageIndex === index ? 'none' : `3px solid ${borderColor}`, 
+                                    boxShadow:
+                                        selectedImageIndex === index
+                                            ? '0 0 10px 5px gray' // 클릭된 이미지만 회색 box-shadow
+                                            : 'none', 
                                     cursor: 'pointer',
+                                    transition: 'box-shadow 0.3s ease, border 0.3s ease', 
                                 }}
                             />
                         );
@@ -156,7 +161,7 @@ const Reports = () => {
                                     </tr>
                                 ) : (
                                     <tr>
-                                        <td colSpan="3">No data selected</td>
+                                        <td colSpan="4">No data selected</td>
                                     </tr>
                                 )}
                             </tbody>
