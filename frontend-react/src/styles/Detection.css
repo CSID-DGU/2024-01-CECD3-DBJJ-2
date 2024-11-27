@@ -7,6 +7,10 @@
     padding: 10px;
 }
 
+.content {
+  width: 1296px;
+}
+
 .data-set {
     width: 20%;
     padding: 10px;
